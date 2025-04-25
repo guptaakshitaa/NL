@@ -1,0 +1,86 @@
+#Create a Simulator Object set
+ns [new Simulator]
+#0pen the NAM trace file set
+nf [open out.nam w]
+$ns namtrace-all $nf
+set np [open out.tr w]
+$ns trace-all $np
+#define finish procedure
+proc finish {} {
+global ns nf np $ns
+flush-trace #Close
+NAM Trace
+close $nf #Execute NAM on
+the tracefile exec nam
+out.nam &
+exit 0
+}
+#create two nodes
+set n0 [$ns node] set
+n1 [$ns node] set n2
+[$ns node] set n3
+[$ns node]
+#Create Links between all nodes
+$ns duplex-link $n0 $n1 2Mb 10ms DropTail #set Queue Size
+$ns queue-limit $n0 $nl 5
+#Monitor The queue for Link (n0-n1)
+$ns duplex-link-op $n0 $n1 queuePos 0.5
+#Set up a TCP connection set
+tcp [new Agent/TCP] $ns
+attach-agent $n0 $tcp set
+sink [new Agent/TCPSink]
+$ns attach-agent $n1 $sink
+$ns connect $tcp $sink
+#Set Packet Colour
+$tcp set fid_ 1
+#Create Links between all nodes
+$ns duplex-link $n1 $n2 2Mb 10ms DropTail
+#set Queue Size
+$ns queue-limit $n1 $n2 5
+#Monitor The queue for link (n0-n1)
+$ns duplex-link-op $nl $n2 queuePos 0.5
+#Set up a TCP connection set
+tcp [new Agent/TCP] $ns
+attach-agent $n1 $tcp set
+sink [new Agent/TCPSink]
+$ns attach-agent $n2 $sink
+$ns connect $tcp $sink
+#Set Packet Colour
+$tcp set fid_1
+#Create Links between all nodes
+$ns duplex-link $n2 $n3 2Mb 10ms DropTail
+#set Queue Size
+$ns queue-limit $n2 $n3 5
+#Monitor The queue for link (n0-n1)
+$ns duplex-link-op $n2 $n3 queuePos 0.5
+#Set up a TCP connection set
+tcp [new Agent/TCP] $ns
+attach-agent $n2 $tcp set
+sink [new Agent/TCPSink]
+$ns attach-agent $n3 $sink
+$ns connect $tcp $sink
+#Set Packet Colour
+$tcp set fid_ 1
+#Create links between all nodes
+$ns duplex-link $n3 $n0 2Mb 10ms DropTail
+#set Queue Size
+$ns queue-limit $n3 $n0 5
+#Monitor The queue for link (n0-n1)
+$ns duplex-link-op $n3 $n0 queuePos 8.5
+#Set up a TCP connection set
+tcp [new Agent/ICI'] $ns
+attach-agent $n3 $tcp set
+sink [new Agent/TCPSink]
+$ns attach-agent $n0 $sink
+$ns connect Stop $sink
+#Set Packet Colour
+$tcp set fid_ 1
+#Set up FTP Protocol (Application Layer) over TCP (Transport Layer) set
+ftp [new Application/FTP]
+$ftp attach-agent $tcp
+#Schedule Events for FTP agents
+$ns at 0.1 “$ftp start"
+$ns at 4.0 “$ftp stop"
+$ns at 5.0 “finish”
+#Run Simulator
+$ns run
