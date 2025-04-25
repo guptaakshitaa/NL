@@ -1,0 +1,83 @@
+UDP SERVER SIDE
+import java.io.
+*;
+import java.net.
+*;
+public class UDPServer {
+public static void main(String[] args) {
+DatagramSocket socket = null;
+try {
+socket = new DatagramSocket(12345);
+while (true) {
+byte[] receiveData = new byte[1024];
+DatagramPacket receivePacket = new DatagramPacket(receiveData,
+receiveData.length);
+socket.receive(receivePacket);
+String message = new String(receivePacket.getData(), 0,
+receivePacket.getLength());
+String[] numbers = message.split("
+,
+");
+int num1 = Integer.parseInt(numbers[0]);
+int num2 = Integer.parseInt(numbers[1]);
+int sum = num1 + num2;
+String response = Integer.toString(sum);
+byte[] sendData = response.getBytes();
+InetAddress clientAddress = receivePacket.getAddress();
+int clientPort = receivePacket.getPort();
+DatagramPacket sendPacket = new DatagramPacket(sendData,
+sendData.length, clientAddress, clientPort);
+socket.send(sendPacket);
+}
+} catch (IOException e) {
+e.printStackTrace();
+} finally {
+if (socket != null && !socket.isClosed()) {
+socket.close();SE/IT/S12/35
+}
+}
+}
+}
+UDP CLIENT SIDE
+import java.io.
+*;
+import java.net.
+*;
+import java.util.Scanner;
+public class UDPClient {
+public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in);
+DatagramSocket socket = null;
+try {
+socket = new DatagramSocket();
+InetAddress serverAddress = InetAddress.getByName("localhost");
+System.out.print("Enter the first number: ");
+int num1 = scanner.nextInt();
+System.out.print("Enter the second number: ");
+int num2 = scanner.nextInt();
+String message = num1 + "
+,
+" + num2;
+byte[] sendData = message.getBytes();
+DatagramPacket sendPacket = new DatagramPacket(sendData,
+sendData.length, serverAddress, 12345);
+socket.send(sendPacket);SE/IT/S12/35
+byte[] receiveData = new byte[1024];
+DatagramPacket receivePacket = new DatagramPacket(receiveData,
+receiveData.length);
+socket.receive(receivePacket);
+String response = new String(receivePacket.getData(), 0,
+receivePacket.getLength());
+System.out.println("The sum from server is: " + response);
+} catch (IOException e) {
+e.printStackTrace();
+} finally {
+if (socket != null && !socket.isClosed()) {
+socket.close();
+}
+}
+scanner.close();
+}
+}
+
+
