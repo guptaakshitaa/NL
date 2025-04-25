@@ -1,0 +1,85 @@
+TCPServer.java
+import java.io.
+*;
+import java.net.
+*;
+public class TCPServer {
+public static void main(String[] args) {
+try {
+// Create a ServerSocket to listen on port 1234
+ServerSocket serverSocket = new ServerSocket(1234);
+System.out.println("Server is listening on port 1234...
+");
+// Wait for client connection
+Socket clientSocket = serverSocket.accept();
+System.out.println("Client connected: " + clientSocket.getInetAddress().getHostAddress());
+// Get input and output streams
+BufferedReader in = new BufferedReader(new
+InputStreamReader(clientSocket.getInputStream()));
+PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+// Ask for first number
+out.println("Please enter the first number:");
+String num1String = in.readLine();
+// Ask for second number
+out.println("Please enter the second number:");
+String num2String = in.readLine();
+try {
+// Parse the numbers and perform multiplication
+double num1 = Double.parseDouble(num1String);
+double num2 = Double.parseDouble(num2String);
+double result = num1 * num2;
+// Send the result back to the client
+out.println("Result of multiplication: " + result);
+} catch (NumberFormatException e) {
+out.println("Error: Invalid number format. Please enter valid numbers.
+");
+}
+// Close the connections
+in.close();
+out.close();
+clientSocket.close();
+serverSocket.close();
+} catch (IOException e) {
+System.err.println("Error: " + e.getMessage());
+}
+}
+}
+TCPClient.java
+import java.io.
+*;
+import java.net.
+*;
+public class TCPClient {
+public static void main(String[] args) {
+try {
+// Connect to the server running on localhost and port 1234
+Socket socket = new Socket("localhost"
+, 1234);
+System.out.println("Connected to server...
+");
+// Get input and output streams
+BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+// Get user input for the two numbers
+BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+// Receive message asking for the first number
+System.out.println(in.readLine());
+String num1 = userInput.readLine(); // Read first number
+out.println(num1); // Send first number to server
+// Receive message asking for the second number
+System.out.println(in.readLine());
+String num2 = userInput.readLine(); // Read second number
+out.println(num2); // Send second number to server
+// Read the server's response
+String serverResponse = in.readLine();
+System.out.println("Server response: " + serverResponse);
+// Close the connections
+in.close();
+out.close();
+userInput.close();
+socket.close();
+} catch (IOException e) {
+System.err.println("Error: " + e.getMessage());
+}
+}
+}
