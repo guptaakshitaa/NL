@@ -1,0 +1,33 @@
+-i wlan0).
+<interface>: Specify the network interface to capture packets from (e.g., eth0,
+●
+1.
+-i host:
+●
+●
+●
+-n: Don’t resolve hostnames (i.e., display IP addresses instead).
+-v, -vv, -vvv: Increase the verbosity of the output. More vs provide additional details.
+-c <count>: Stop after receiving count packets.
+●
+-A: Print each packet in ASCII. Useful for seeing the contents of text-based protocols
+like HTTP.
+●
+-q: Show less protocol information, making the output more compact.
+●
+●
+-s <size>: Define the snapshot length; that is, the amount of data captured from each
+packet. The default is sufficient for most protocols but can be increased if more of the
+packet content is needed.
+Port :
+●
+Tcpdump -r: This command will now read the captured packets from the
+captured
+_packets.pcap file.
+●
+sudo tcpdump -w: This command will now output all the captures packets in a file named
+as captured
+_packets.pcap.
+●
+sudo tcpdump -D: This command will display all the interfaces that are available in the
+system.
