@@ -1,0 +1,69 @@
+##Basic Commands 
+ifconfig
+Ifconfig-The ifconfig command is used to configure, manage, and display network interface settings
+on Unix-like operating systems. It allows you to view or modify IP addresses, netmasks, and other
+network parameters .
+Basic Networking Commands
+2) ip
+The ip command is used to manage and display network interfaces, IP addresses, routes, and traffic
+control in modern Unix-like operating systems. It replaces the older ifconfig command and provides
+more features, including support for IPv6 and advanced routing.
+Basic Networking Commands
+3) traceroute
+The traceroute command is used to display the route that packets take to reach a destination on a
+network. It shows the hops (intermediate devices like routers) along the path and the response
+times for each hop.
+4) tracepath
+The tracepath command is used to trace the route to a destination, similar to traceroute, but with
+fewer privileges. It is primarily used for diagnosing network issues and automatically determines the
+Maximum Transmission Unit (MTU) along the path, which can help identify MTU-related problems.
+Basic Networking Commands
+5) ping
+The ping command is used to test the connectivity between your machine and a remote host. It
+sends request packets and measures the time it takes to receive a response, helping diagnose
+network issues like packet loss or latency.
+6) netstat
+The netstat command is used to display network connections, routing tables, interface statistics, and
+open ports on a system. It helps monitor network activity and troubleshoot network-related issues.
+Basic Networking Commands
+7) ss
+The ss command is used to display detailed information about network connections, sockets, and
+listening ports. It is faster and more efficient than netstat, offering advanced filtering and better
+support for modern protocols like TCP, UDP, and Unix domain sockets.
+8) dig
+dig (Domain Information Groper) is a tool used to query DNS (Domain Name System) servers for
+information about domain names, IP addresses, and DNS records.
+Basic Networking Commands
+9) nslookup
+nslookup is a command-line tool used to query DNS to obtain domain name or IP address
+information. It's commonly used to troubleshoot DNS-related issues.
+Basic Networking Commands
+10) route
+route is used to view or modify the system's IP routing table, which determines the paths that
+network traffic will follow to reach a destination.
+11) host
+host is a simple command used to perform DNS lookups and convert domain names to IP addresses
+(and vice versa), similar to dig and nslookup.
+Basic Networking Commands
+12) arp
+arp (Address Resolution Protocol) is used to display and manipulate the ARP cache, which maps IP
+addresses to physical MAC addresses on a local network.
+13) hostname
+hostname is used to display or set the system’s hostname, which is the name used to identify the
+machine on a network.
+Basic Networking Commands
+14) wget
+wget is a command-line tool for downloading files from the web using HTTP, HTTPS, or FTP
+protocols. It supports features like recursive downloads and automatic retries.
+15) mtr
+mtr (My Traceroute) is a network diagnostic tool combining traceroute and ping functionality. It
+provides real-time information about the route and quality of each hop between your machine and a
+destination.
+Basic Networking Commands
+16) whois
+whois is used to query databases to retrieve information about domain names, IP addresses, and
+network resources, including domain registration details.
+Basic Networking Commands
+17) tcpdump
+tcpdump is a packet analyzer used for capturing and inspecting network traffic. It allows detailed
+monitoring of packets sent over the network, useful for troubleshooting and security analysis.
