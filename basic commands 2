@@ -1,0 +1,139 @@
+1. PING:
+Ping (Packet Internet Groper) is a method for determining communication latency between
+two networks or ping is a method of determining the time it takes for data to travel
+between two devices or across a network. As communication latency decreases,
+communication effectiveness improves. A low ping time is critical in situations where the
+timely delivery of data is more important than the quantity and quality of the desired
+information.
+options:
+1. ping - t :
+It continuously pings a specific IP address or Web site. This process continues until it stops.
+Press Ctrl + C to prevent/end the continuous ping command.
+2. ping - a:
+This command displays the computer name of the computer with the IP address you are
+pinging.
+3. ping -n:
+This command assigns a specified number of Ping to an IP address and Web site. Its value is
+4 by default. You can ping the number of times you specify by adding -n to the command.
+4.ping -l:
+When you usually ping to a destination, the packet size sent is 32 Bytes. You can increase
+this value with the ping -l command. The ping packet size limit is 65,500 bytes.
+5. ping -l flood Command
+This command sends the packet size you specify without destroying the destination.
+6. ping -c :
+Specify the number of packets to be sent.
+command
+2. Traceroute:
+The traceroute command is a network diagnostic tool used to track the path that data
+packets take from your computer to a specified destination, such as a website or an IP
+address. It helps identify network problems by showing each hop (router) the packets pass
+through and the time it takes to reach each hop.
+option:
+1. tracert -d :
+tracert will list the IP addresses of each hop. When it doesn't have to resolve hostnames,
+the command also becomes much faster.
+2. tracert -h maximum_hops:
+set the maximum number of hops in the path to search for target. Default is 30 hops.
+3. tracert -w <timeout>
+Specifies the timeout in milliseconds to wait for each reply. Default is 4000 ms.
+4. tracert -R <route_option>
+This option routes each hop in reverse, from destination back to the source.
+5. tracert -4 <destination>
+Forces Tracert to use IPv4 for the trace.
+2.command : netstat
+The ’netstat’ (network statistics) command is a powerful utility used primarily by
+system administrators and network engineers to monitor network connections and
+performance on a computer running Windows. It provides detailed information
+about network connections, protocol statistics, and topology, making it essential for
+diagnosing and resolving network issues. The command can be used to display active
+connections, listening ports, routing tables, and much more.
+options :
+1. netstat -a
+The ‘-a’ argument tells ’netstat’ to display all active TCP connections as well as the TCP and
+UDP ports the machine is currently listening to.
+5
+2. netstat -e
+The ‘-e’ option instructs ’netstat’ to provide byte count statistics for network adapters,
+showing you the total bytes and packets sent and received, and errors.
+3. netstat -n
+The ‘-n’ argument prevents ’netstat’ from attempting to resolve hostnames and displays all
+IP addresses numerically. This avoids any delay or errors related to DNS lookups, ensuring
+the settings and outputs are processed quickly and reflect actual IP address relationships.
+4. netstat -o
+With ‘-o’, ’netstat’ adds the process ID (PID) of each connection to the output. The PID helps
+link open connections directly back to the process that initiated them, thereby combining
+networking information with process management for administrator scrutiny.
+6
+5. netstat -r
+The ‘-r’ switch provides a view of the system’s IP routing table, showing the network
+destinations, gateway addresses, and interface lists. This exposes how system-tied routes
+are managed and resolved across connected networks.
+7
+4. command : ipconfig
+The ipconfig command is a powerful tool in Windows that displays all current TCP/IP
+network configuration values and refreshes Dynamic Host Configuration Protocol (DHCP)
+and Domain Name System (DNS) settings.
+options:
+8
+1. ipconfig /all
+/all: Displays the full TCP/IP configuration for all adapters.
+9
+2.ipconfig /release
+/release: Releases the current DHCP configuration and discards the IP address configuration
+for all adapters or a specific adapter.
+10
+3. ipconfig /renew
+/renew: Renews the DHCP configuration for all adapters or a specific adapter
+11
+4.ipconfug/review
+12
+5.ipconfig /flushdns
+/flushdns: Flushes and resets the contents of the DNS client resolver cache.
+5. Command: nslookup:
+The NsLoookup command is used to perform network troubleshooting, fetch DNS
+information, and verify domain configuration.
+option:
+1. NsLoookup <domain-name>
+To lookup the IP of a domain name (domain name to IP address)
+13
+2. nslookup -type = mx
+View Mail Exchange server information.
+3. nslookup -type=ns
+Name Server (NS) records store names of the domain's name servers.
+14
+4. nslookup -type=soa [domain-name]
+Start of Authority (SOA) records provide authoritative information about the domain and
+the server, such as the email address of the administrator, serial number, refresh interval,
+query expiration time, etc.
+5. nslookup -type=txt [domain-name]
+TXT records contain important information for users outside of the domain.
+6. Hostname:
+15
+The hostname command is a versatile tool used to display or set the system's hostname. A
+hostname is a unique identifier assigned to a computer connected to a network.
+Options:
+1. Display the alias name of the host: hostname -a
+2. Display the DNS domain name: hostname -d
+3. Display the IP address: hostname -i
+4. Display the short hostname: hostname -s
+5. Display the version information: hostname -V
+7. ARP command
+ARP stands for “Address Resolution Protocol” is a protocol for mapping an IP
+address to a physical MAC address on a local area network.
+16
+Option :
+1. arp -a :
+17
+8. CURL:
+Curl is a command-line tool used to transfer data to and from a server using various
+protocols such as HTTP, HTTPS, FTP, and more.
+1. curl -o
+This option specifies the output file for the response.
+2. -v or --verbose:
+This option enables verbose mode, which displays detailed information about the request
+and response.
+3. -s or --silent:
+This option suppresses the output of the request and response.
+18
+4. -u or --user:
+This option specifies the username and password for authentication.
